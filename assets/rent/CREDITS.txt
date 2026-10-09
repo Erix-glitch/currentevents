@@ -1,0 +1,12 @@
+Photos in this folder
+
+apartments-for-rent.jpg: David Horemans/CBC (the article's photo)
+for-rent-vancouver.jpg: CBC News (still from "Average asking rent in Vancouver dips in the past year, report finds")
+for-rent-toronto.jpg: CBC News (still from "More GTA tenants are falling behind on rent")
+cranes-cambie-bridge.jpg: Geoff Peters from Vancouver, BC, Canada, CC BY 2.0, Wikimedia Commons (https://commons.wikimedia.org/wiki/File:Cranes_over_the_Cambie_Bridge_(5215966977).jpg)
+west-end-apartments.jpg: Robert Ashworth from Bellingham, WA., USA, CC BY 2.0, Wikimedia Commons (https://commons.wikimedia.org/wiki/File:Dense_west_end_apartments_from_Burrard_Street_Bridge_(7735482928).jpg)
+false-creek.jpg: Northwest, CC BY 4.0, Wikimedia Commons (https://commons.wikimedia.org/wiki/File:False_Creek,_Vancouver_(2025).jpg)
+seawall.jpg: Paul Sableman, CC BY 2.0, Wikimedia Commons (https://commons.wikimedia.org/wiki/File:False_creek_seawall_2019.jpg)
+rent-banner.jpg: RicLaf from Halifax, Canada, CC BY-SA 2.0, Wikimedia Commons (https://commons.wikimedia.org/wiki/File:Fenwick_Tower,_rent_banner.jpg)
+toronto-condos.jpg: JK Liu, CC BY-SA 4.0, Wikimedia Commons (https://commons.wikimedia.org/wiki/File:Pinnacle_Centre_2025-05-24.jpg)
+west-end-tall.jpg: a crop of west-end-apartments.jpg

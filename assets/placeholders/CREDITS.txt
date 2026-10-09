@@ -1,0 +1,17 @@
+Placeholder photos from Unsplash (via picsum.photos), free to use under the Unsplash License. Replace them with photos about your story.
+
+cover.jpg: photo by Alexey Topolyanskiy, https://unsplash.com/photos/-oWyJoSqBRM
+issue.jpg: photo by Patrick Fore, https://unsplash.com/photos/V6s1cmE39XM
+question-1.jpg: photo by Tim Marshall, https://unsplash.com/photos/yEOCA6oiVqg
+question-2.jpg: photo by Wolfgang Lutz, https://unsplash.com/photos/yOujaSETXlo
+question-3.jpg: photo by Anthony DELANOIX, https://unsplash.com/photos/b5POxb2aL9o
+end.jpg: photo by Susanne Feldt, https://unsplash.com/photos/SIoHky3TPeo
+why.jpg: photo by Jared Erondu, https://unsplash.com/photos/j4PaE7E2_Ws
+who.jpg: photo by Kevin Young, https://unsplash.com/photos/-icmOdYWXuQ
+who-1.jpg: photo by Roberto Nickson, https://unsplash.com/photos/7BjmDICVloE
+who-2.jpg: photo by Danielle MacInnes, https://unsplash.com/photos/1DkWWN1dr-s
+who-3.jpg: photo by freddie marriage, https://unsplash.com/photos/utwYoEu9SU8
+when-1.jpg: photo by Steve Carter, https://unsplash.com/photos/Ixp4YhCKZkI
+when-2.jpg: photo by Andrew Coelho, https://unsplash.com/photos/VB-w_3dnyvI
+when-3.jpg: photo by Christian Joudrey, https://unsplash.com/photos/mWRR1xj95hg
+when-4.jpg: photo by Joseph Barrientos, https://unsplash.com/photos/xcC5ozHk_N8

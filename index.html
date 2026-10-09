@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Current Events</title>
+<link rel="stylesheet" href="engine/style.css">
+<script>
+  // collect script errors (usually a typo in content.js) so the deck can explain them on screen
+  window.__errors = [];
+  addEventListener('error', e => __errors.push(`${(e.filename || '').split('/').pop()} line ${e.lineno}: ${e.message}`));
+</script>
+</head>
+<body>
+<div id="stage" role="region" aria-roledescription="slides" aria-label="Current events presentation"></div>
+<div id="live" class="sr-only" aria-live="polite"></div>
+<div id="blackout" hidden></div>
+<div id="help" hidden>
+  <div class="help-card">
+    <h2>Presenting</h2>
+    <dl>
+      <dt>→ or Space</dt><dd>Next animation, or the next slide when this one is done</dd>
+      <dt>←</dt><dd>Step back</dd>
+      <dt>Home / End</dt><dd>First / last slide</dd>
+      <dt>F</dt><dd>Full screen</dd>
+      <dt>B</dt><dd>Black screen (any key brings it back)</dd>
+      <dt>Space or P</dt><dd>Play or pause, on the news clip slide</dd>
+      <dt>?</dt><dd>Show or hide this list</dd>
+    </dl>
+  </div>
+</div>
+
+<script src="content.js"></script>
+<script src="engine/vendor/gsap.min.js"></script>
+<script src="engine/vendor/d3-array.min.js"></script>
+<script src="engine/vendor/d3-geo.min.js"></script>
+<script src="engine/vendor/topojson-client.min.js"></script>
+<script src="engine/vendor/qrcode.js"></script>
+<script src="engine/world.js"></script>
+<script src="engine/globe.js"></script>
+<script src="engine/vendor/three.min.js"></script>
+<script src="engine/cards3d.js"></script>
+<script src="engine/atmos.js"></script>
+<script src="engine/verity.js"></script>
+<script src="engine/verity3d.js"></script>
+<script src="engine/deck.js"></script>
+</body>
+</html>

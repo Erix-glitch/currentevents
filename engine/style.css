@@ -1,0 +1,1859 @@
+@font-face {
+  font-family: "Libre Franklin";
+  src: url("fonts/LibreFranklin-VF.ttf") format("truetype");
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: block;
+}
+
+@font-face {
+  font-family: "Libre Franklin";
+  src: url("fonts/LibreFranklin-Italic-VF.ttf") format("truetype");
+  font-weight: 100 900;
+  font-style: italic;
+  font-display: block;
+}
+
+@font-face {
+  font-family: "Newsreader";
+  src: url("fonts/Newsreader-VF.ttf") format("truetype");
+  font-weight: 200 800;
+  font-style: normal;
+  font-display: block;
+}
+
+@font-face {
+  font-family: "Caladea";
+  src: url("fonts/Caladea-Regular.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: block;
+}
+
+@font-face {
+  font-family: "Caladea";
+  src: url("fonts/Caladea-Italic.ttf") format("truetype");
+  font-weight: 400;
+  font-style: italic;
+  font-display: block;
+}
+
+@font-face {
+  font-family: "Nunito";
+  src: url("fonts/Nunito-VF.ttf") format("truetype");
+  font-weight: 200 1000;
+  font-style: normal;
+  font-display: block;
+}
+
+@font-face {
+  font-family: "Newsreader";
+  src: url("fonts/Newsreader-Italic-VF.ttf") format("truetype");
+  font-weight: 200 800;
+  font-style: italic;
+  font-display: block;
+}
+
+@font-face {
+  font-family: "Arial Rounded MT Bold";
+  src: url("fonts/Arial Rounded MT Bold.ttf") format("truetype");
+  font-weight: 200 800;
+  font-style: italic;
+  font-display: block;
+}
+
+@font-face {
+  font-family: "Avenir Next";
+  src: url("fonts/AvenirNextLTPro-Regular.otf") format("truetype");
+  font-weight: 200 800;
+  font-style: italic;
+  font-display: block;
+}
+
+:root {
+  --sans: "Libre Franklin", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  --serif: "Newsreader", Georgia, "Times New Roman", serif;
+  --m: 128px;
+  /* outer margin */
+}
+
+/* ---------- themes (content.js: theme). The engine reads these too, for the globe, the cards and the 3D scene ---------- */
+/* cobalt: bright blue and white, with a yellow highlighter */
+:root,
+:root[data-theme="cobalt"] {
+  --paper: #F4F4F1;
+  /* light slides */
+  --ink: #141414;
+  --graphite: #5B5D61;
+  --rule: #D2D3CF;
+  --dark: #2340D8;
+  /* dark slides */
+  --dark-fg: #fff;
+  --dark-fg2: rgba(255, 255, 255, .74);
+  --dark-line: rgba(255, 255, 255, .32);
+  --accent-l: #2340D8;
+  /* accent colour on light slides */
+  --accent-rgb: 35 64 216;
+  --hl-rgb: 255 226 74;
+  /* the highlighter */
+  --photo-tint: #2340D8;
+  /* photos behind text are tinted with this */
+  --photo-under: #1B2A7A;
+  --shade-rgb: 16 30 125;
+  --dim-rgb: 14 26 110;
+  --shadow-rgb: 6 12 64;
+  --globe-sea: #1F3ACC;
+  --globe-province: #FFD23F;
+  --globe-country: #FFE47A;
+  --globe-continent: #F7EBB4;
+  --globe-mark: #FFE24A;
+  --mono: 0;
+  /* 1: every photo in black and white */
+  --duo-light: 0.1;
+  --head: var(--sans);
+  /* titles */
+  --head-w: 800;
+  --head-w2: 700;
+  /* big statements and names */
+  --head-track: -0.028em;
+  --cover-track: -0.034em;
+}
+
+/* night: a winter night in the northern Rockies. Slate and bone, black-and-white photos, candlelight amber */
+:root[data-theme="night"] {
+  --paper: #ECE9E3;
+  --ink: #15191E;
+  --graphite: #575E68;
+  --rule: #CDC9C1;
+  --dark: #0F151C;
+  --dark-fg: #F1EEE8;
+  --dark-fg2: rgba(241, 238, 232, .66);
+  --dark-line: rgba(241, 238, 232, .22);
+  --accent-l: #3A5874;
+  --accent-rgb: 58 88 116;
+  --hl-rgb: 233 186 96;
+  --photo-tint: #2E3A48;
+  --photo-under: #0B1015;
+  --shade-rgb: 9 13 18;
+  --dim-rgb: 15 21 28;
+  --shadow-rgb: 3 6 9;
+  --globe-sea: #1A2430;
+  --globe-province: #D9A441;
+  --globe-country: #E6C27C;
+  --globe-continent: #EEE0C1;
+  --globe-mark: #EDBA5C;
+  --mono: 1;
+  --duo-light: -0.12;
+  --head: var(--serif);
+  --head-w: 500;
+  --head-w2: 500;
+  --head-track: -0.012em;
+  --cover-track: -0.02em;
+}
+
+:root {
+  --hl: rgb(var(--hl-rgb));
+  --card-l: var(--paper);
+  --card-d: var(--dark);
+}
+
+/* desert: a sunny morning over a solar park. Ivory and deep solar blue cards, a sunshine highlighter */
+:root[data-theme="desert"] {
+  --paper: #FFF8EC;
+  --ink: #1C2532;
+  --graphite: #5B6472;
+  --rule: #E7D9C2;
+  --dark: #173452;
+  --dark-fg: #FFF8EC;
+  --dark-fg2: rgba(255, 248, 236, .74);
+  --dark-line: rgba(255, 248, 236, .24);
+  --accent-l: #1F64B0;
+  --accent-rgb: 31 100 176;
+  --hl-rgb: 255 204 77;
+  --photo-tint: #173452;
+  --photo-under: #173452;
+  --shade-rgb: 23 52 82;
+  --dim-rgb: 23 52 82;
+  --shadow-rgb: 70 45 18;
+  --globe-sea: #173452;
+  --globe-province: #F0A436;
+  --globe-country: #F6C86A;
+  --globe-continent: #FBE5B8;
+  --globe-mark: #E0592A;
+  --mono: 0;
+  --duo-light: 0.1;
+  --head: var(--sans);
+  --head-w: 800;
+  --head-w2: 700;
+  --head-track: -0.028em;
+  --cover-track: -0.032em;
+  /* the 3D world */
+  --sky-top: #4C8CD4;
+  --sky-mid: #9BC6EE;
+  --horizon: #FBE6C8;
+  --sun: #FFF2D6;
+  --sand: #F0CB96;
+  --sand-dark: #D29A63;
+  --ridge: #D4BC9E;
+  --post: #A7ADB5;
+  --shade: #8A5A2C;
+  --card-l: rgba(255, 249, 238, .95);
+  --card-d: rgba(23, 52, 82, .93);
+}
+
+/* city: a bright day on a waterfront city of glass towers. White and deep teal cards, a sunny highlighter */
+:root[data-theme="city"] {
+  --paper: #FFFDF9;
+  --ink: #18222D;
+  --graphite: #56616D;
+  --rule: #DCE3E8;
+  --dark: #0F3440;
+  --dark-fg: #F5FAFB;
+  --dark-fg2: rgba(245, 250, 251, .74);
+  --dark-line: rgba(245, 250, 251, .24);
+  --accent-l: #0B7285;
+  --accent-rgb: 11 114 133;
+  --hl-rgb: 255 210 70;
+  --photo-tint: #0F3440;
+  --photo-under: #0F3440;
+  --shade-rgb: 15 52 64;
+  --dim-rgb: 15 52 64;
+  --shadow-rgb: 20 40 55;
+  --globe-sea: #0F3440;
+  --globe-province: #F0A436;
+  --globe-country: #F6C86A;
+  --globe-continent: #FBE5B8;
+  --globe-mark: #E2533A;
+  --mono: 0;
+  --duo-light: 0.1;
+  --head: var(--sans);
+  --head-w: 800;
+  --head-w2: 700;
+  --head-track: -0.028em;
+  --cover-track: -0.032em;
+  /* the 3D world */
+  --sky-top: #3E86D6;
+  --sky-mid: #95C5EE;
+  --horizon: #E3EEF4;
+  --sun: #FFF4DE;
+  --water: #1C5A70;
+  --land: #9AA79A;
+  --trees: #4E8A4E;
+  --crane: #F2BE32;
+  --mountain: #47706E;
+  --mountain-top: #6E8F92;
+  --mountain-far: #8EA9B6;
+  --card-l: rgba(255, 253, 249, .95);
+  --card-d: rgba(15, 52, 64, .93);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  height: 100%;
+  overflow: hidden;
+}
+
+body {
+  background: var(--paper);
+  font-family: var(--sans);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+/* ---------- stage: a 1920 x 1080 canvas scaled to fit any screen ---------- */
+#stage {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 1920px;
+  height: 1080px;
+  overflow: hidden;
+  transform-origin: 0 0;
+}
+
+/* layers, back to front: background colour, the photo frame, the 3D scene (snow, the ridge), the globe, the slides, the morph overlay */
+#atmos,
+#env,
+#verity {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 1920px;
+  height: 1080px;
+  pointer-events: none;
+}
+
+#bg {
+  position: absolute;
+  inset: 0;
+  background: var(--paper);
+}
+
+#globe {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 1920px;
+  height: 1080px;
+  pointer-events: none;
+}
+
+/* the photo frame: --duo 0 shows the photo as it is, 1 tints it (blue, or slate at night) so light text reads on top */
+#photo {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 1920px;
+  height: 1080px;
+  overflow: hidden;
+  visibility: hidden;
+  isolation: isolate;
+  --duo: 0;
+  background: var(--photo-under);
+}
+
+.ph-layer {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+}
+
+.ph-layer.blinds {
+  --b: 0%;
+  -webkit-mask-image: linear-gradient(90deg, #000 var(--b), transparent var(--b));
+  mask-image: linear-gradient(90deg, #000 var(--b), transparent var(--b));
+  -webkit-mask-size: 12.5% 100%;
+  mask-size: 12.5% 100%;
+}
+
+.ph-cam {
+  position: absolute;
+  inset: 0;
+}
+
+.ph-cam img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: grayscale(max(var(--duo), var(--mono))) contrast(calc(1 + var(--duo) * 0.2 + var(--mono) * 0.06)) brightness(calc(1 + var(--duo) * var(--duo-light)));
+}
+
+.ph-tint {
+  position: absolute;
+  inset: 0;
+  background: var(--photo-tint);
+  mix-blend-mode: multiply;
+  opacity: var(--duo);
+  pointer-events: none;
+}
+
+.ph-shade {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: var(--duo);
+  background: linear-gradient(90deg, rgb(var(--shade-rgb) / .62) 0%, rgb(var(--shade-rgb) / .32) 45%, rgb(var(--shade-rgb) / 0) 75%), linear-gradient(0deg, rgb(var(--shade-rgb) / .35), rgb(var(--shade-rgb) / 0) 40%);
+}
+
+#fx {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 20;
+}
+
+#fx>* {
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+.page {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  visibility: hidden;
+  color: var(--fg);
+  font-feature-settings: "kern", "liga";
+}
+
+.page.on {
+  visibility: visible;
+}
+
+.page.light {
+  --fg: var(--ink);
+  --fg2: var(--graphite);
+  --line: var(--rule);
+  --accent: var(--accent-l);
+}
+
+.page.dark {
+  --fg: var(--dark-fg);
+  --fg2: var(--dark-fg2);
+  --line: var(--dark-line);
+  --accent: var(--hl);
+}
+
+.page>* {
+  position: absolute;
+  margin: 0;
+}
+
+/* running head: worksheet section + page number (the small globe sits just left of it) */
+.head {
+  left: 174px;
+  right: var(--m);
+  top: 58px;
+  display: flex;
+  align-items: baseline;
+  font: 400 24px/1 var(--sans);
+  color: var(--fg2);
+  white-space: nowrap;
+}
+
+.head.cover-head {
+  left: var(--m);
+}
+
+.head b {
+  font-weight: 700;
+  color: var(--fg);
+  margin-right: 26px;
+}
+
+.head .num {
+  margin-left: auto;
+  font-weight: 500;
+  font-variant-numeric: tabular-nums;
+}
+
+.title {
+  font: var(--head-w) 84px/1.02 var(--head);
+  letter-spacing: var(--head-track);
+  text-wrap: balance;
+  margin: 0;
+}
+
+.lab {
+  font: 500 24px/1.2 var(--sans);
+  color: var(--fg2);
+}
+
+/* ---------- words and the highlighter ---------- */
+.w {
+  display: inline-block;
+}
+
+.w.hl {
+  --p: 0%;
+  --ha: 1;
+  color: var(--fg);
+  background: linear-gradient(rgb(var(--hl-rgb) / var(--ha)), rgb(var(--hl-rgb) / var(--ha))) no-repeat 0 72% / var(--p) 74%;
+  padding: 0 .15em;
+  margin: 0 -.15em;
+}
+
+.light .w.hl {
+  color: var(--ink);
+}
+
+/* on dark slides the text turns dark as the highlighter passes over it */
+.dark .w.hl>.hl-t {
+  color: transparent;
+  background: linear-gradient(var(--ink), var(--ink)) no-repeat 0 0 / var(--p) 100%, linear-gradient(var(--dark-fg), var(--dark-fg));
+  -webkit-background-clip: text;
+  background-clip: text;
+}
+
+/* ---------- cover ---------- */
+.cover-main {
+  left: var(--m);
+  top: 170px;
+  width: 1240px;
+  height: 814px;
+  display: flex;
+  flex-direction: column;
+}
+
+.cover-title {
+  flex: 1 1 0;
+  min-height: 0;
+  margin: 0;
+  display: flex;
+  align-items: flex-end;
+  font: var(--head-w) 150px/0.98 var(--head);
+  letter-spacing: var(--cover-track);
+  text-wrap: balance;
+}
+
+.cover-title>span {
+  display: block;
+}
+
+.cover-from {
+  margin: 38px 0 0;
+  max-width: 1180px;
+  font: 400 32px/1.3 var(--sans);
+  color: var(--fg2);
+  text-wrap: balance;
+}
+
+.cover-from b {
+  font-weight: 600;
+  color: var(--fg);
+}
+
+.cover-fields {
+  display: grid;
+  grid-template-columns: repeat(2, max-content);
+  gap: 30px 56px;
+  margin-top: 52px;
+}
+
+.field {
+  position: relative;
+  display: flex;
+  align-items: baseline;
+  gap: 20px;
+  min-width: 400px;
+  padding: 0 24px 14px 0;
+}
+
+.field .lab {
+  font-size: 26px;
+}
+
+.field .val {
+  font: 600 36px/1.1 var(--sans);
+  white-space: nowrap;
+}
+
+.field .line {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 2px;
+  background: var(--line);
+  transform-origin: 0 50%;
+}
+
+/* ---------- article ---------- */
+.art-info {
+  left: var(--m);
+  top: 150px;
+  width: 816px;
+  height: 834px;
+  display: flex;
+  flex-direction: column;
+}
+
+.art-title {
+  font: 600 62px/1.06 var(--serif);
+  letter-spacing: -0.012em;
+  margin: 14px 0 0;
+  text-wrap: balance;
+}
+
+.art-meta {
+  display: grid;
+  grid-template-columns: 236px 1fr;
+  gap: 22px 0;
+  margin: 52px 0 0;
+  padding-top: 34px;
+  border-top: 2px solid var(--line);
+}
+
+.art-meta dt {
+  font: 500 24px/1.45 var(--sans);
+  color: var(--fg2);
+  padding-top: 6px;
+}
+
+.art-meta dd {
+  margin: 0;
+  font: 500 34px/1.25 var(--sans);
+}
+
+.art-qr {
+  display: flex;
+  align-items: center;
+  gap: 28px;
+  margin-top: auto;
+}
+
+.art-qr svg {
+  display: block;
+  width: 148px;
+  height: 148px;
+  flex: none;
+}
+
+.art-qr p {
+  margin: 0;
+  font: 500 28px/1.3 var(--sans);
+}
+
+.art-qr p span {
+  display: block;
+  color: var(--fg2);
+  font-weight: 400;
+  font-size: 24px;
+  margin-top: 6px;
+}
+
+.art-sheet {
+  left: 1048px;
+  top: 140px;
+  width: 744px;
+  height: 844px;
+  background: #fff;
+  overflow: hidden;
+  box-shadow: 0 1px 2px rgba(20, 20, 20, .10), 0 30px 70px -30px rgba(20, 20, 20, .35);
+}
+
+.art-scroll {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+}
+
+.art-scroll img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.art-scroll.mocked,
+.art-scroll .mock {
+  height: 100%;
+  overflow: hidden;
+}
+
+/* placeholder article, built from the details above */
+.mock {
+  padding: 44px 52px;
+  color: var(--ink);
+}
+
+.mock-mast {
+  font: 700 30px/1 var(--serif);
+  text-align: center;
+  padding-bottom: 18px;
+  border-bottom: 3px double var(--ink);
+}
+
+.mock-head {
+  font: 600 38px/1.12 var(--serif);
+  margin: 30px 0 16px;
+  letter-spacing: -0.01em;
+  text-wrap: balance;
+}
+
+.mock-by {
+  font: 500 17px/1.3 var(--sans);
+  color: var(--graphite);
+  display: flex;
+  justify-content: space-between;
+}
+
+.mock-img {
+  margin: 22px 0 24px;
+  height: 250px;
+  background: #E7E8E4;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  font: 500 21px/1.35 var(--sans);
+  color: var(--graphite);
+  padding: 0 60px;
+}
+
+.mock-img code {
+  font: 600 21px var(--sans);
+  color: var(--ink);
+}
+
+.mock-lines i {
+  display: block;
+  height: 11px;
+  background: #E2E3DF;
+  margin: 0 0 15px;
+}
+
+/* ---------- clip ---------- */
+.p-clip .title {
+  left: var(--m);
+  top: 140px;
+  width: 1216px;
+}
+
+.vid {
+  left: var(--m);
+  top: 278px;
+  width: 1216px;
+  height: 684px;
+  background: #0d0e12;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.vid video,
+.vid iframe,
+.vid img.thumb {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+  object-fit: contain;
+}
+
+.vid img.thumb {
+  object-fit: cover;
+}
+
+.vid .play {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 132px;
+  height: 132px;
+  margin: -66px 0 0 -66px;
+  border-radius: 50%;
+  background: var(--accent-l);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: opacity .25s, transform .25s;
+}
+
+.vid .play::after {
+  content: "";
+  margin-left: 10px;
+  border-style: solid;
+  border-width: 26px 0 26px 42px;
+  border-color: transparent transparent transparent #fff;
+}
+
+.vid.playing .play {
+  opacity: 0;
+  transform: scale(.85);
+}
+
+.vid .bar {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  height: 6px;
+  width: 0;
+  background: var(--hl);
+}
+
+.vid .empty {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 18px;
+  color: #fff;
+  text-align: center;
+  padding: 0 140px;
+}
+
+.vid .empty b {
+  font: 700 40px/1.2 var(--sans);
+}
+
+.vid .empty span {
+  font: 400 28px/1.4 var(--sans);
+  color: rgba(255, 255, 255, .72);
+}
+
+.vid .empty code {
+  font: 600 28px var(--sans);
+  color: #fff;
+}
+
+.clip-side {
+  left: 1400px;
+  top: 282px;
+  width: 392px;
+  height: 680px;
+  display: flex;
+  flex-direction: column;
+}
+
+.clip-cap {
+  font: 500 32px/1.3 var(--sans);
+  margin: 0;
+}
+
+.clip-hint {
+  margin-top: auto;
+  font: 400 24px/1.4 var(--sans);
+  color: var(--fg2);
+}
+
+.clip-hint kbd {
+  font: 600 22px var(--sans);
+  color: var(--fg);
+  border: 2px solid var(--line);
+  border-radius: 6px;
+  padding: 2px 9px;
+}
+
+/* ---------- who ---------- */
+.who-left {
+  left: var(--m);
+  top: 140px;
+  width: 700px;
+}
+
+.who-sum {
+  font: 400 38px/1.34 var(--serif);
+  color: var(--fg2);
+  margin: 44px 0 0;
+  max-width: 640px;
+  text-wrap: pretty;
+}
+
+.who-list {
+  left: 976px;
+  top: 150px;
+  width: 816px;
+  height: 834px;
+  --k: 1;
+}
+
+.who-row {
+  padding: calc(40px * var(--k)) 0;
+  border-top: 2px solid var(--line);
+}
+
+.who-row:first-child {
+  border-top: 0;
+  padding-top: calc(4px * var(--k));
+}
+
+.who-name {
+  font: var(--head-w2) calc(56px * var(--k))/1.08 var(--head);
+  letter-spacing: -0.018em;
+  margin: 0;
+}
+
+.who-how {
+  font: 400 calc(34px * var(--k))/1.38 var(--sans);
+  color: var(--fg2);
+  margin: calc(14px * var(--k)) 0 0;
+  text-wrap: pretty;
+}
+
+.who-cap {
+  left: 152px;
+  top: 912px;
+}
+
+.who-cap span {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  white-space: nowrap;
+  background: var(--accent-l);
+  color: #fff;
+  font: 600 26px/1 var(--sans);
+  padding: 13px 18px 14px;
+}
+
+/* ---------- what ---------- */
+.p-what .title {
+  left: var(--m);
+  top: 140px;
+  width: 1400px;
+  font-size: 72px;
+}
+
+.what-col {
+  left: var(--m);
+  top: 386px;
+  width: 1080px;
+  height: 598px;
+  --k: 1;
+}
+
+.what-main {
+  margin: 0;
+  font: var(--head-w2) calc(72px * var(--k))/1.1 var(--head);
+  letter-spacing: -0.022em;
+  text-wrap: balance;
+}
+
+.what-detail {
+  margin: calc(52px * var(--k)) 0 0;
+  max-width: 860px;
+  font: 400 calc(34px * var(--k))/1.42 var(--sans);
+  color: var(--fg2);
+  text-wrap: pretty;
+}
+
+.what-quote {
+  left: 1290px;
+  top: 396px;
+  width: 502px;
+  height: 588px;
+  padding-left: 36px;
+  border-left: 5px solid var(--accent);
+}
+
+.what-quote blockquote {
+  margin: 0;
+  font: italic 400 40px/1.3 var(--serif);
+  text-wrap: pretty;
+}
+
+.what-quote cite {
+  display: block;
+  margin-top: 26px;
+  font: 500 24px/1.35 var(--sans);
+  font-style: normal;
+  color: var(--fg2);
+}
+
+.p-what.noquote .what-col {
+  width: 1400px;
+}
+
+/* ---------- where ---------- */
+.where-left {
+  left: var(--m);
+  top: 140px;
+  width: 780px;
+}
+
+.places {
+  margin: 64px 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.places li {
+  margin: 0 0 30px;
+}
+
+.places .val {
+  display: block;
+  font: 700 52px/1.08 var(--sans);
+  letter-spacing: -0.018em;
+  margin-top: 6px;
+}
+
+.pin {
+  left: 900px;
+  top: 150px;
+  width: 900px;
+  height: 900px;
+  overflow: visible;
+  pointer-events: none;
+}
+
+.pin svg {
+  position: absolute;
+  left: 0;
+  top: 0;
+  overflow: visible;
+}
+
+.pin-tag {
+  position: absolute;
+  background: var(--paper);
+  padding: 14px 18px 15px;
+  box-shadow: 0 0 0 2px var(--accent-l);
+  white-space: nowrap;
+}
+
+.pin-tag b {
+  display: block;
+  font: 700 32px/1.1 var(--sans);
+}
+
+.pin-tag span {
+  display: block;
+  font: 500 22px/1.3 var(--sans);
+  color: var(--fg2);
+  margin-top: 6px;
+}
+
+.pin-tag small {
+  display: block;
+  font: 400 19px/1.3 var(--sans);
+  color: var(--fg2);
+  margin-top: 4px;
+  font-variant-numeric: tabular-nums;
+}
+
+/* ---------- when ---------- */
+.p-when .title {
+  left: var(--m);
+  top: 140px;
+  width: 1400px;
+  font-size: 72px;
+}
+
+.tl-card {
+  top: 318px;
+  height: 172px;
+  margin: 0;
+  overflow: hidden;
+  background: var(--rule);
+}
+
+.tl-card img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transform-origin: 50% 100%;
+  filter: grayscale(var(--mono)) contrast(calc(1 + var(--mono) * 0.06));
+}
+
+.tl-card.end img {
+  filter: grayscale(1) contrast(1.05);
+}
+
+.tl-card.end::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border: 4px dashed var(--accent-l);
+}
+
+.tl-seg {
+  height: 4px;
+  background: var(--ink);
+  transform-origin: 0 50%;
+}
+
+.tl-seg.future {
+  background: repeating-linear-gradient(90deg, var(--accent-l) 0 16px, transparent 16px 28px);
+}
+
+.tl-node {
+  width: 22px;
+  height: 22px;
+  margin: -11px 0 0 -11px;
+  border-radius: 50%;
+  background: var(--ink);
+}
+
+.tl-node.event {
+  width: 16px;
+  height: 16px;
+  margin: -8px 0 0 -8px;
+}
+
+.tl-node.now {
+  background: var(--accent-l);
+}
+
+.tl-pulse {
+  width: 44px;
+  height: 44px;
+  pointer-events: none;
+}
+
+.tl-pulse::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  border: 3px solid var(--accent-l);
+  animation: pulse 2.2s ease-out infinite;
+}
+
+@keyframes pulse {
+  from {
+    transform: scale(.55);
+    opacity: .7;
+  }
+
+  to {
+    transform: scale(1.7);
+    opacity: 0;
+  }
+}
+
+.tl-node.end {
+  width: 30px;
+  height: 30px;
+  margin: -15px 0 0 -15px;
+  background: var(--paper);
+  border: 4px solid var(--accent-l);
+}
+
+.tl-top {
+  bottom: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.tl-top .lab {
+  font-weight: 600;
+  font-size: 22px;
+}
+
+.tl-date {
+  display: block;
+  white-space: nowrap;
+  font: 700 38px/1.05 var(--sans);
+  letter-spacing: -0.012em;
+  font-variant-numeric: tabular-nums;
+}
+
+.tl-lab.end .tl-date {
+  color: var(--accent-l);
+}
+
+.tl-text {
+  font: 400 28px/1.36 var(--sans);
+  color: var(--fg2);
+  text-wrap: pretty;
+}
+
+/* ---------- discussion: a card per question, in real 3D (the deck script moves them) ---------- */
+.p-disc .title {
+  left: var(--m);
+  top: 140px;
+  width: 780px;
+}
+
+.q-table {
+  left: 0;
+  top: 0;
+  width: 1920px;
+  height: 1080px;
+  perspective: 2400px;
+  transform-style: preserve-3d;
+  pointer-events: none;
+}
+
+.q-card,
+.q-shadow {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 740px;
+  height: 860px;
+}
+
+.q-card {
+  transform-style: preserve-3d;
+  --fg: var(--ink);
+  --fg2: var(--graphite);
+  color: var(--ink);
+}
+
+.q-shadow {
+  border-radius: 30px;
+  background: rgb(var(--shadow-rgb) / .62);
+  filter: blur(24px);
+}
+
+.q-face {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  border-radius: 30px;
+  background: var(--paper);
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
+
+.q-back {
+  transform: rotateY(180deg);
+}
+
+.q-img {
+  position: absolute;
+  left: 22px;
+  top: 22px;
+  right: 22px;
+  height: 432px;
+  margin: 0;
+  overflow: hidden;
+  border-radius: 14px;
+  background: #1B2A7A;
+}
+
+.q-img img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: grayscale(var(--mono)) contrast(calc(1 + var(--mono) * 0.06));
+}
+
+.noimg .q-img {
+  display: none;
+}
+
+.q-body {
+  position: absolute;
+  left: 54px;
+  right: 54px;
+  top: 494px;
+  bottom: 48px;
+  display: flex;
+  flex-direction: column;
+}
+
+.noimg .q-body {
+  top: 66px;
+}
+
+.q-lab {
+  font: 600 24px/1.2 var(--sans);
+  color: var(--accent-l);
+  margin-bottom: 18px;
+}
+
+.q-t {
+  flex: 1 1 0;
+  min-height: 0;
+  margin: 0;
+  font: 650 50px/1.16 var(--sans);
+  letter-spacing: -0.016em;
+  text-wrap: pretty;
+}
+
+/* the highlighter on a card works like on the white slides */
+.q-card .w.hl {
+  color: var(--ink);
+}
+
+.q-card .w.hl>.hl-t {
+  color: inherit;
+  background: none;
+  -webkit-background-clip: border-box;
+  background-clip: border-box;
+}
+
+/* the back: playing-card corners, a big number and a halftone like the globe's */
+.q-back::before {
+  content: "";
+  position: absolute;
+  inset: 22px;
+  border-radius: 16px;
+  border: 2px solid rgb(var(--accent-rgb) / .32);
+  background: radial-gradient(circle, rgb(var(--accent-rgb) / .2) 2.3px, transparent 2.9px) 0 0 / 19px 19px;
+  -webkit-mask-image: radial-gradient(closest-side, #000 30%, rgba(0, 0, 0, .25) 100%);
+  mask-image: radial-gradient(closest-side, #000 30%, rgba(0, 0, 0, .25) 100%);
+}
+
+.q-idx {
+  position: absolute;
+  left: 52px;
+  top: 46px;
+  font: 800 66px/1 var(--sans);
+  color: var(--accent-l);
+  font-variant-numeric: tabular-nums;
+}
+
+.q-idx.r {
+  left: auto;
+  top: auto;
+  right: 52px;
+  bottom: 46px;
+  transform: rotate(180deg);
+}
+
+.q-bl {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 214px;
+  text-align: center;
+  font: 600 30px/1 var(--sans);
+  color: var(--accent-l);
+}
+
+.q-big {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 262px;
+  text-align: center;
+  font: 800 380px/1 var(--sans);
+  letter-spacing: -0.04em;
+  color: var(--accent-l);
+  font-variant-numeric: tabular-nums;
+}
+
+/* drawn by three.js instead (served from a web server); the HTML cards stay as the layout it copies */
+.q-gl {
+  left: 0;
+  top: 0;
+  width: 1920px;
+  height: 1080px;
+  pointer-events: none;
+}
+
+.p-disc.gl .q-table {
+  visibility: hidden;
+}
+
+.q-dim,
+.q-light,
+.q-gloss {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.q-dim {
+  background: rgb(var(--dim-rgb) / .5);
+  opacity: 0;
+}
+
+.q-light {
+  background: #050A30;
+  opacity: 0;
+}
+
+.q-gloss {
+  right: auto;
+  width: 60%;
+  left: -60%;
+  opacity: 0;
+  background: linear-gradient(105deg, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, .7) 50%, rgba(255, 255, 255, 0) 100%);
+}
+
+/* ---------- why ---------- */
+.why-col {
+  left: var(--m);
+  top: 140px;
+  width: 1080px;
+  height: 844px;
+  --k: 1;
+}
+
+.p-why .title {
+  position: static;
+  width: 100%;
+}
+
+.why-text {
+  font: 400 calc(52px * var(--k))/1.36 var(--serif);
+  margin: calc(56px * var(--k)) 0 0;
+  text-wrap: pretty;
+}
+
+.why-sign {
+  font: 600 calc(30px * var(--k))/1.2 var(--sans);
+  color: var(--fg2);
+  margin: calc(40px * var(--k)) 0 0;
+}
+
+.why-sign span::before {
+  content: "— ";
+}
+
+.why-sign span.raw::before {
+  content: none;
+}
+
+/* ---------- end ---------- */
+.end-title {
+  left: var(--m);
+  top: 186px;
+  width: 1100px;
+  font: var(--head-w) 150px/0.96 var(--head);
+  letter-spacing: var(--cover-track);
+}
+
+.end-name {
+  left: var(--m);
+  top: 508px;
+  font: 600 36px/1.2 var(--sans);
+}
+
+.end-src {
+  left: var(--m);
+  top: 612px;
+  width: 1030px;
+}
+
+.end-src .lab {
+  font-weight: 600;
+}
+
+.end-src p {
+  margin: 14px 0 0;
+  font: 400 34px/1.4 var(--serif);
+  padding-left: 1.4em;
+  text-indent: -1.4em;
+  overflow-wrap: anywhere;
+}
+
+.end-qr {
+  left: var(--m);
+  top: 862px;
+  display: flex;
+  align-items: center;
+  gap: 26px;
+}
+
+.end-qr svg {
+  display: block;
+  width: 116px;
+  height: 116px;
+}
+
+.end-qr p {
+  margin: 0;
+  font: 500 26px/1.3 var(--sans);
+}
+
+.end-credit {
+  left: 520px;
+  top: 906px;
+  width: 760px;
+  margin: 0;
+  font: 400 20px/1.45 var(--sans);
+  color: var(--fg2);
+}
+
+/* ---------- presenter overlays ---------- */
+#blackout {
+  position: fixed;
+  inset: 0;
+  background: #000;
+  z-index: 100;
+}
+
+#help {
+  position: fixed;
+  inset: 0;
+  z-index: 90;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(10, 12, 18, .45);
+}
+
+#help[hidden],
+#blackout[hidden] {
+  display: none;
+}
+
+.help-card {
+  background: #fff;
+  color: var(--ink);
+  padding: 32px 40px 28px;
+  min-width: 380px;
+  box-shadow: 0 30px 80px rgba(0, 0, 0, .35);
+}
+
+.help-card h2 {
+  margin: 0 0 18px;
+  font: 800 26px/1 var(--sans);
+  letter-spacing: -0.01em;
+}
+
+.help-card dl {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 10px 28px;
+  margin: 0;
+  font: 400 17px/1.35 var(--sans);
+}
+
+.help-card dt {
+  font-weight: 600;
+}
+
+.help-card dd {
+  margin: 0;
+  color: var(--graphite);
+}
+
+.error {
+  position: fixed;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 40px;
+  background: var(--paper);
+  color: var(--ink);
+  z-index: 200;
+}
+
+.error div {
+  max-width: 760px;
+  font: 400 20px/1.5 var(--sans);
+}
+
+.error h1 {
+  font: 800 40px/1.1 var(--sans);
+  margin: 0 0 16px;
+}
+
+.error ul {
+  margin: 12px 0 0;
+  padding-left: 22px;
+}
+
+.error li {
+  margin: 6px 0;
+}
+
+.error code {
+  font: 600 18px ui-monospace, Menlo, monospace;
+  background: #fff;
+  padding: 1px 6px;
+}
+
+.error pre {
+  white-space: pre-wrap;
+  background: #fff;
+  padding: 14px 18px;
+  border-left: 4px solid var(--accent-l);
+  font: 500 16px/1.5 ui-monospace, Menlo, monospace;
+}
+
+/* ---------- intro (optional first slide) ---------- */
+.p-intro .intro-card {
+  left: var(--m);
+  top: 220px;
+  width: 900px;
+  height: 620px;
+  --k: 1;
+}
+
+.intro-kicker {
+  margin: 0 0 calc(22px * var(--k));
+  font: 600 calc(26px * var(--k))/1.2 var(--sans);
+  color: var(--accent);
+  letter-spacing: .01em;
+}
+
+.intro-title {
+  margin: 0;
+  font: var(--head-w) calc(100px * var(--k))/0.98 var(--head);
+  letter-spacing: var(--cover-track);
+  text-wrap: balance;
+}
+
+.intro-text {
+  margin: calc(40px * var(--k)) 0 0;
+  font: 400 calc(40px * var(--k))/1.36 var(--sans);
+  color: var(--fg2);
+  text-wrap: pretty;
+  max-width: 820px;
+}
+
+.intro-pic {
+  margin: 0;
+}
+
+.intro-pic,
+.pic {
+  position: absolute;
+}
+
+.pic-float {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  background: #fff;
+  padding: 12px;
+  border-radius: 16px;
+  box-shadow: 0 30px 60px -24px rgba(40, 30, 10, .45), 0 2px 6px rgba(40, 30, 10, .18);
+}
+
+.pic-float img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+.pic-back .pic-float {
+  padding: 18px;
+  border-radius: 22px;
+}
+
+.lens-bed,
+.tl-bed,
+.end-bed {
+  display: none;
+}
+
+/* ---------- space layout: every slide floats in one 3D world, the camera flies between them ---------- */
+#stage.space {
+  perspective: 1600px;
+  perspective-origin: 960px 540px;
+}
+
+#world {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 1920px;
+  height: 1080px;
+  transform-style: preserve-3d;
+  transform-origin: 960px 540px;
+}
+
+.space #bg {
+  background: linear-gradient(var(--sky-top, #5C98DA), var(--sky-mid, #A9CDEE) 48%, var(--horizon, #FBE6C8) 62%);
+}
+
+.space #photo {
+  display: none;
+}
+
+.space .page {
+  transform-style: preserve-3d;
+  overflow: visible;
+  transform-origin: 960px 540px;
+}
+
+.space .page.near {
+  visibility: visible;
+}
+
+.space .q-table {
+  perspective: none;
+}
+
+/* the running head becomes a small floating tag */
+.space .head {
+  left: var(--m);
+  right: auto;
+  top: 46px;
+  padding: 14px 24px 15px;
+  isolation: isolate;
+}
+
+.space .head::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  border-radius: 999px;
+  background: var(--card);
+  box-shadow: 0 14px 30px -16px rgba(40, 30, 10, .4);
+}
+
+.space .head .num {
+  margin-left: 26px;
+}
+
+.space .light {
+  --card: var(--card-l);
+}
+
+.space .dark {
+  --card: var(--card-d);
+}
+
+/* cards: each block of text sits on its own floating card */
+.space .pnl {
+  isolation: isolate;
+}
+
+.space .pnl::before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  inset: -40px -50px;
+  border-radius: 30px;
+  background: var(--card);
+  box-shadow: 0 40px 80px -30px rgba(40, 28, 8, .42), 0 2px 8px rgba(40, 28, 8, .12);
+}
+
+.fitting .pnl::before {
+  display: none;
+}
+
+.space .who-row {
+  position: relative;
+  border-top: 0;
+}
+
+.space .who-row::before {
+  inset: -6px -40px;
+}
+
+.space .who-row:first-child {
+  padding-top: calc(40px * var(--k));
+}
+
+.space .title.pnl::before {
+  inset: -30px -44px -32px;
+}
+
+.space .what-quote {
+  border-left: 0;
+}
+
+.space .what-quote::before {
+  inset: -36px -36px -36px -6px;
+  border-left: 6px solid var(--accent);
+}
+
+.space .lens-bed {
+  display: block;
+  left: 912px;
+  top: 152px;
+  width: 876px;
+  height: 876px;
+}
+
+.space .lens-bed::before {
+  inset: 0;
+  border-radius: 50%;
+}
+
+.space .tl-bed {
+  display: block;
+  left: 80px;
+  top: 296px;
+  width: 1760px;
+  height: 724px;
+}
+
+.space .tl-bed::before {
+  inset: 0;
+}
+
+.space .end-bed {
+  display: block;
+  left: 80px;
+  top: 140px;
+  width: 1240px;
+  height: 890px;
+}
+
+.space .end-bed::before {
+  inset: 0;
+}
+
+.space .p-disc .title {
+  width: 720px;
+}
+
+/* ---------- Verity's speech bubbles ---------- */
+.say {
+  pointer-events: none;
+  overflow: visible;
+}
+
+.say svg {
+  position: absolute;
+  left: 0;
+  top: 0;
+  overflow: visible;
+}
+
+.say path {
+  fill: var(--accent-l);
+  stroke: #06123F;
+  stroke-width: 2.5;
+  stroke-linejoin: round;
+}
+
+.say p {
+  position: absolute;
+  inset: 0;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 0 26px;
+  font: 400 36px/1.25 "Avenir Next", var(--sans);
+  color: #fff;
+}
+
+:root[data-theme="night"] .say path {
+  fill: #3A5874;
+}
+
+/* ---------- content.js photoTint: false: photos behind text keep their colours and are softly blurred instead of tinted ---------- */
+:root[data-tint="off"] .ph-cam img {
+  filter: blur(calc(var(--duo) * 7px)) brightness(calc(1 - var(--duo) * 0.12));
+}
+
+:root[data-tint="off"] .ph-tint {
+  display: none;
+}
+
+/* a plain dark shade (no colour) behind the text, so white words stay readable on bright photos */
+:root[data-tint="off"] .ph-shade {
+  background: linear-gradient(90deg, rgba(0, 0, 0, .58) 0%, rgba(0, 0, 0, .42) 45%, rgba(0, 0, 0, .16) 80%), linear-gradient(0deg, rgba(0, 0, 0, .3), rgba(0, 0, 0, 0) 45%);
+}
+
+/* ---------- content.js fonts: the deck's own pairing (titles / text / labels and cards / citation) ---------- */
+:root[data-fonts] {
+  --sans: var(--f-text);
+  --serif: var(--f-text);
+  --head: var(--f-title);
+  --head-w: 700;
+  --head-w2: 700;
+  --head-track: -0.01em;
+  --cover-track: -0.012em;
+}
+
+:root[data-fonts] .art-title,
+:root[data-fonts] .places .val,
+:root[data-fonts] .end-name,
+:root[data-fonts] .intro-kicker,
+:root[data-fonts] .intro-title {
+  font-family: var(--f-title);
+  font-weight: 700;
+  letter-spacing: -0.01em;
+}
+
+:root[data-fonts] .who-name {
+  font-family: var(--f-text);
+}
+
+:root[data-fonts] .head,
+:root[data-fonts] .places .lab,
+:root[data-fonts] .q-lab,
+:root[data-fonts] .q-t {
+  font-family: var(--f-label);
+}
+
+:root[data-fonts] .q-t {
+  font-weight: 700;
+  letter-spacing: 0;
+}
+
+:root[data-fonts] .end-src p {
+  font-family: var(--f-cite);
+}
